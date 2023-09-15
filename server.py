@@ -13,4 +13,6 @@ async def on_order_handler(request: Request) -> HTTPResponse:
     return text("Done")
     
 
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8000)
 
