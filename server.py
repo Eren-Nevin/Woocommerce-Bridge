@@ -1,4 +1,4 @@
-from sanic.response import HTTPResponse, text
+from sanic.response import HTTPResponse, text, json
 from sanic.request import Request
 from sanic import Sanic
 from pprint import pprint
@@ -9,7 +9,7 @@ app =Sanic(__name__)
 async def on_order_handler(request: Request) -> HTTPResponse:
     pprint(request)
     pprint(request.headers)
-    pprint(request.body)
+    pprint(request.body.decode())
     return text("Done")
     
 
