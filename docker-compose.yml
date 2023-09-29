@@ -1,0 +1,5 @@
+services:
+  woocommerce-bridge:
+    build: .
+    ports:
+      - "4343:4343"
