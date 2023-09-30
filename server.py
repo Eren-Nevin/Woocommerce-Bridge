@@ -14,22 +14,32 @@ class UserInfo:
         self.phone = phone
         self.first_name = first_name
         self.last_name = last_name
-        self.product_name = product_line_items[0]['name'];
-        self.product_id = product_line_items[0]['product_id'];
+        self.product_name: str = product_line_items[0]['name'];
+        self.product_id: int = product_line_items[0]['product_id'];
         self.product_metadata = product_line_items[0]['meta_data'][0];
         self.product_type = self.get_product_type()
         self.product_size = self.get_product_size()
         self.product_insurance = self.get_product_insurance()
 
 
-
     def __str__(self) -> str:
-        return f"Email: {self.email}\nPhone: {self.phone}\nFirst Name: {self.first_name}\nLast Name: {self.last_name}\nProduct: {self.product_name}"
+        return f"""
+        Email: {self.email}
+        Phone: {self.phone}
+        First Name: {self.first_name}
+        Last Name: {self.last_name}
+        Product Name: {self.product_name}
+        Product ID: {self.product_id}
+        Product Meta Data: {self.product_metadata}
+        Product Type: {self.product_type}
+        Product Size: {self.product_size}
+        Product Insurance: {self.product_insurance}
+        """
 
     def get_product_type(self) -> str:
-        if 'General' in self.product_name:
+        if 'general' in self.product_name.lower():
             return 'General'
-        elif 'Grand' in self.product_name:
+        elif 'grand' in self.product_name.lower():
             return 'Grand'
         return 'Unknown'
     
@@ -41,7 +51,7 @@ class UserInfo:
     
     # TODO: Test this
     def get_product_insurance(self) -> bool:
-        if 'no insurance' in self.product_name:
+        if 'no insurance' in self.product_name.lower():
             return False
         return True
 
@@ -59,7 +69,8 @@ async def on_order_handler(request: Request) -> HTTPResponse:
         last_name=request.json['billing']['last_name'],
         product_line_items=request.json['line_items']
     );
-    pprint(user_info)
+    pprint(str(user_info))
+    print('', flush=True)
     
     # with open('last.json', 'w+') as f:
     #     json.dump(request.json, f)
