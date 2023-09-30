@@ -51,8 +51,6 @@ class UserInfo:
 
 @app.post("/woocommerce_order")
 async def on_order_handler(request: Request) -> HTTPResponse:
-    pprint(request)
-    pprint(request.headers)
     pprint(request.body.decode())
     user_info = UserInfo(
         email=request.json['billing']['email'],
@@ -61,6 +59,7 @@ async def on_order_handler(request: Request) -> HTTPResponse:
         last_name=request.json['billing']['last_name'],
         product_line_items=request.json['line_items']
     );
+    pprint(user_info)
     
     # with open('last.json', 'w+') as f:
     #     json.dump(request.json, f)
