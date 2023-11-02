@@ -158,6 +158,8 @@ async def on_order_handler(request: Request) -> HTTPResponse:
     );
     pprint(str(user_info))
     print('', flush=True)
+
+    send_user_to_server(user_info)
     
     return text("Done")
     
