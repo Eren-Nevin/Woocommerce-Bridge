@@ -5,8 +5,16 @@ from sanic import Sanic
 from pprint import pprint
 import json
 import re
+import requests
 
-app =Sanic(__name__)
+metatrader_address = 'https://fundedmax.org:5001'
+add_user_api = '/api/v1/admin/Admin/AddNewUser'
+auth_api = '/api/v1/Authentication/Login'
+username = 'admin@fundedmax.com'
+password = '@1Fundedmaxisthebest'
+
+session = requests.session()
+login_token = ''
 
 class UserInfo:
     def __init__(self, email: str, phone: str, first_name: str, last_name: str, product_line_items: List, date_raw: str) -> None:
@@ -57,6 +65,76 @@ class UserInfo:
             return False
         return True
 
+test_user_info = UserInfo(
+    email='shrnemati@gmail.com',
+    phone='091212345678',
+    first_name='Jalal',
+    last_name='Jabaroot',
+    date_raw='2023-09-15T19:58:02',
+    product_line_items= [
+    {
+      "id": 2125,
+      "name": "$ 10000 General - no insurance",
+      "product_id": 4380,
+      "variation_id": 5541,
+      "quantity": 1,
+      "tax_class": "",
+      "subtotal": "4450000",
+      "subtotal_tax": "0",
+      "total": "4450000",
+      "total_tax": "0",
+      "taxes": [],
+      "meta_data": [
+        {
+          "id": 14275,
+          "key": "pa_ins",
+          "value": "no-insurance",
+          "display_key": "ins",
+          "display_value": "no insurance"
+        }
+      ],
+      "sku": "",
+      "price": 4450000,
+      "image": {
+        "id": 5050,
+        "src": "https://fundedmax.com/wp-content/uploads/2023/06/10k.png"
+      },
+      "parent_name": "$ 10000 General"
+    }
+  ]
+)
+
+app =Sanic(__name__)
+
+
+
+def login():
+    global login_token
+    login_res = session.get(f"{metatrader_address}{auth_api}", params={'login': username, 'password': password})
+    login_token = login_res.json()['data']
+    if login_token:
+        return True
+
+
+def send_user_to_server(user_info: UserInfo):
+    if not login_token:
+        login()
+
+    headers = {"Authorization": f"Bearer {login_token}"}
+    res = session.post(f"{metatrader_address}{add_user_api}", headers=headers, json= {
+        'email': user_info.email,
+        'phone': user_info.phone,
+        'firstName': user_info.first_name + ' ' + user_info.last_name,
+        'accountSize': user_info.product_size,
+        'accountType': 0 if user_info.product_type == 'Grand' else 1
+    })
+    print(res.text)
+    return res
+
+def test_send_user_to_server():
+    send_res = send_user_to_server(test_user_info)
+
+
 
 @app.post("/woocommerce_order")
 async def on_order_handler(request: Request) -> HTTPResponse:
@@ -71,9 +149,8 @@ async def on_order_handler(request: Request) -> HTTPResponse:
     );
     pprint(str(user_info))
     print('', flush=True)
+    send_user_to_server(user_info)
     
-    # with open('last.json', 'w+') as f:
-    #     json.dump(request.json, f)
     return text("Done")
     
 
