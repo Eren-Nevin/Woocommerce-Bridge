@@ -10,18 +10,17 @@ import requests
 metatrader_address = 'https://fundedmax.org:5001'
 add_user_api = '/api/v1/admin/Admin/AddNewUser'
 auth_api = '/api/v1/Authentication/Login'
-username = 'admin@fundedmax.com'
+login = 'admin@fundedmax.com'
 password = '@1Fundedmaxisthebest'
 
-session = requests.session()
-login_token = ''
+
+app =Sanic(__name__)
 
 class UserInfo:
-    def __init__(self, email: str, phone: str, first_name: str, last_name: str, product_line_items: List, date_raw: str) -> None:
+    def __init__(self, email: str, phone: str, name: str, product_line_items: List, date_raw: str) -> None:
         self.email = email
         self.phone = phone
-        self.first_name = first_name
-        self.last_name = last_name
+        self.name = name
         self.date_raw = date_raw
         self.product_name: str = product_line_items[0]['name'];
         self.product_id: int = product_line_items[0]['product_id'];
@@ -35,8 +34,7 @@ class UserInfo:
         return f"""
         Email: {self.email}
         Phone: {self.phone}
-        First Name: {self.first_name}
-        Last Name: {self.last_name}
+        Name: {self.name}
         Date: {self.date_raw}
         Product Name: {self.product_name}
         Product ID: {self.product_id}
@@ -65,11 +63,33 @@ class UserInfo:
             return False
         return True
 
-test_user_info = UserInfo(
+
+
+def send_user_to_server(user_info: UserInfo):
+    session = requests.session()
+    login_res = session.get(f"{metatrader_address}{auth_api}", params={'login': login, 'password': password})
+    print(login_res.text)
+    login_token = login_res.json()['data']
+    headers = {"Authorization": f"Bearer {login_token}"}
+    print(headers)
+
+    res = session.post(f"{metatrader_address}{add_user_api}", headers=headers, json= {
+        'email': user_info.email,
+        'phone': user_info.phone,
+        'firstName': user_info.name,
+        'accountSize': user_info.product_size,
+        'accountType': 0 if user_info.product_type == 'Grand' else 1
+    })
+    print(res.request.headers)
+    print(res.request.body)
+    print(res.status_code)
+    print(res.text)
+    return res
+
+user_info = UserInfo(
     email='shrnemati@gmail.com',
     phone='091212345678',
-    first_name='Jalal',
-    last_name='Jabaroot',
+    name='Test Name',
     date_raw='2023-09-15T19:58:02',
     product_line_items= [
     {
@@ -104,52 +124,34 @@ test_user_info = UserInfo(
   ]
 )
 
-app =Sanic(__name__)
-
-
-
-def login():
-    global login_token
-    login_res = session.get(f"{metatrader_address}{auth_api}", params={'login': username, 'password': password})
-    login_token = login_res.json()['data']
-    if login_token:
-        return True
-
-
-def send_user_to_server(user_info: UserInfo):
-    if not login_token:
-        login()
-
-    headers = {"Authorization": f"Bearer {login_token}"}
-    res = session.post(f"{metatrader_address}{add_user_api}", headers=headers, json= {
-        'email': user_info.email,
-        'phone': user_info.phone,
-        'firstName': user_info.first_name + ' ' + user_info.last_name,
-        'accountSize': user_info.product_size,
-        'accountType': 0 if user_info.product_type == 'Grand' else 1
-    })
-    print(res.text)
-    return res
-
-def test_send_user_to_server():
-    send_res = send_user_to_server(test_user_info)
+send_res = send_user_to_server(user_info)
 
 
 
 @app.post("/woocommerce_order")
 async def on_order_handler(request: Request) -> HTTPResponse:
     pprint(request.body.decode())
+
+    user_name = ''
+    meta_data_field = request.json['meta_data']
+    for data in meta_data_field:
+        if data['key'] == 'billing_name':
+            user_name = data['value']
+            break
+
+    if not user_name:
+        print("User doesn't have name")
+        return text("No user name")
+        
     user_info = UserInfo(
-        email=request.json['billing']['email'],
-        phone=request.json['billing']['phone'],
-        first_name=request.json['billing']['first_name'],
-        last_name=request.json['billing']['last_name'],
+        email=request.json['meta_data']['billing']['email'],
+        phone=request.json['meta_data']['billing']['phone'],
+        name=user_name,
         date_raw=request.json['date_modified'],
         product_line_items=request.json['line_items']
     );
     pprint(str(user_info))
     print('', flush=True)
-    send_user_to_server(user_info)
     
     return text("Done")
     
