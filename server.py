@@ -150,8 +150,8 @@ async def on_order_handler(request: Request) -> HTTPResponse:
         return text("No user name")
         
     user_info = UserInfo(
-        email=request.json['meta_data']['billing']['email'],
-        phone=request.json['meta_data']['billing']['phone'],
+        email=request.json['billing']['email'],
+        phone=request.json['billing']['phone'],
         name=user_name,
         date_raw=request.json['date_modified'],
         product_line_items=request.json['line_items']
