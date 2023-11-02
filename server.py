@@ -10,9 +10,11 @@ import requests
 metatrader_address = 'https://fundedmax.org:5001'
 add_user_api = '/api/v1/admin/Admin/AddNewUser'
 auth_api = '/api/v1/Authentication/Login'
-login = 'admin@fundedmax.com'
+user_name = 'admin@fundedmax.com'
 password = '@1Fundedmaxisthebest'
 
+session = requests.session()
+login_token = ''
 
 app =Sanic(__name__)
 
@@ -63,16 +65,19 @@ class UserInfo:
             return False
         return True
 
+def login():
+    global login_token
+    login_res = session.get(f"{metatrader_address}{auth_api}", params={'login': username, 'password': password})
+    login_token = login_res.json()['data']
+    if login_token:
+        return True
 
 
 def send_user_to_server(user_info: UserInfo):
-    session = requests.session()
-    login_res = session.get(f"{metatrader_address}{auth_api}", params={'login': login, 'password': password})
-    print(login_res.text)
-    login_token = login_res.json()['data']
-    headers = {"Authorization": f"Bearer {login_token}"}
-    print(headers)
+    if not login_token:
+        login()
 
+    headers = {"Authorization": f"Bearer {login_token}"}
     res = session.post(f"{metatrader_address}{add_user_api}", headers=headers, json= {
         'email': user_info.email,
         'phone': user_info.phone,
@@ -80,13 +85,14 @@ def send_user_to_server(user_info: UserInfo):
         'accountSize': user_info.product_size,
         'accountType': 0 if user_info.product_type == 'Grand' else 1
     })
-    print(res.request.headers)
-    print(res.request.body)
-    print(res.status_code)
     print(res.text)
     return res
 
-user_info = UserInfo(
+def test_send_user_to_server():
+    send_res = send_user_to_server(test_user_info)
+
+
+test_user_info = UserInfo(
     email='shrnemati@gmail.com',
     phone='091212345678',
     name='Test Name',
@@ -124,7 +130,7 @@ user_info = UserInfo(
   ]
 )
 
-send_res = send_user_to_server(user_info)
+# send_res = send_user_to_server(user_info)
 
 
 
