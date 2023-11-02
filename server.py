@@ -10,7 +10,7 @@ import requests
 metatrader_address = 'https://fundedmax.org:5001'
 add_user_api = '/api/v1/admin/Admin/AddNewUser'
 auth_api = '/api/v1/Authentication/Login'
-user_name = 'admin@fundedmax.com'
+admin_name = 'admin@fundedmax.com'
 password = '@1Fundedmaxisthebest'
 
 session = requests.session()
@@ -67,7 +67,7 @@ class UserInfo:
 
 def login():
     global login_token
-    login_res = session.get(f"{metatrader_address}{auth_api}", params={'login': username, 'password': password})
+    login_res = session.get(f"{metatrader_address}{auth_api}", params={'login': admin_name, 'password': password})
     login_token = login_res.json()['data']
     if login_token:
         return True
