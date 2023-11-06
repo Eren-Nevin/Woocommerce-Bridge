@@ -1,0 +1,532 @@
+{'_links': {'collection': [{'href': 'https://fundedmax.com/wp-json/wc/v3/orders'}],
+            'customer': [{'href': 'https://fundedmax.com/wp-json/wc/v3/customers/1377'}],
+            'self': [{'href': 'https://fundedmax.com/wp-json/wc/v3/orders/6579'}]},
+ 'billing': {'address_1': '',
+             'address_2': '',
+             'city': '',
+             'company': '',
+             'country': '',
+             'email': 'mehdisarvi001@gmail.com',
+             'first_name': '',
+             'last_name': '',
+             'phone': '09363609565',
+             'postcode': '',
+             'state': ''},
+ 'cart_hash': '353a2cf59c62164d48b0993a6d5b6ff3',
+ 'cart_tax': '0',
+ 'coupon_lines': [{'code': 'max50',
+                   'discount': '3002274',
+                   'discount_tax': '0',
+                   'id': 2444,
+                   'meta_data': [{'display_key': 'coupon_data',
+                                  'display_value': {'amount': '99',
+                                                    'code': 'max50',
+                                                    'date_created': {'date': '2023-11-02 '
+                                                                             '13:50:26.000000',
+                                                                     'timezone': 'Asia/Tehran',
+                                                                     'timezone_type': 3},
+                                                    'date_expires': None,
+                                                    'date_modified': {'date': '2023-11-03 '
+                                                                              '19:12:58.000000',
+                                                                      'timezone': 'Asia/Tehran',
+                                                                      'timezone_type': 3},
+                                                    'description': '',
+                                                    'discount_type': 'percent',
+                                                    'email_restrictions': [],
+                                                    'exclude_sale_items': False,
+                                                    'excluded_product_categories': [],
+                                                    'excluded_product_ids': [],
+                                                    'free_shipping': False,
+                                                    'id': 6565,
+                                                    'individual_use': True,
+                                                    'limit_usage_to_x_items': None,
+                                                    'maximum_amount': '',
+                                                    'meta_data': [{'id': 99144,
+                                                                   'key': 'number_day_ticket_nirweb
+                                                                   'value': ''},
+                                                                  {'id': 99162,
+                                                                   'key': 'custom-markup-2586-custo
+                                                                   'value': 'custom-field'},
+                                                                  {'id': 99163,
+                                                                   'key': 'custom-markup-2586-custo
+                                                                   'value': '<script '
+                                                                            'type="application/ld+j
+                                                                            '{\r\n'
+                                                                            '  '
+                                                                            '"@context": '
+                                                                            '"https://schema.org/",
+                                                                            '  '
+                                                                            '"@type": '
+                                                                            '"WebSite",\r\n'
+                                                                            '  '
+                                                                            '"name": '
+                                                                            '"Fundedmax",\r\n'
+                                                                            '  '
+                                                                            '"url": '
+                                                                            '"https://fundedmax.com
+                                                                            '  '
+                                                                            '"description": '
+                                                                            '"برای '
+                                                                            'شروع '
+                                                                            'به '
+                                                                            'معامله\u200cگری '
+                                                                            'در '
+                                                                            'بازار '
+                                                                            'فارکس،ما '
+                                                                            'پلن '
+                                                                            'های '
+                                                                            'متنوعی '
+                                                                            'از '
+                                                                            'تأمین '
+                                                                            'سرمایه '
+                                                                            'را '
+                                                                            'به '
+                                                                            'شما '
+                                                                            'ارائه '
+                                                                            'میدهیم. '
+                                                                            'یکی '
+                                                                            'از '
+                                                                            'پلان '
+                                                                            'های '
+                                                                            'مالی '
+                                                                            'ما '
+                                                                            'را '
+                                                                            'انتخاب '
+                                                                            'کنید '
+                                                                            'تا '
+                                                                            'همه '
+                                                                            'توجهات '
+                                                                            'را '
+                                                                            'به '
+                                                                            'خود '
+                                                                            'جلب '
+                                                                            'کنید '
+                                                                            'و '
+                                                                            'شروع '
+                                                                            'به '
+                                                                            'کسب '
+                                                                            'سود '
+                                                                            'و '
+                                                                            'درآمد '
+                                                                            'کنید.",\r\n'
+                                                                            '  '
+                                                                            '"inLanguage": '
+                                                                            '"fa-IR"\r\n'
+                                                                            '}\r\n'
+                                                                            '</script>'},
+                                                                  {'id': 99164,
+                                                                   'key': 'local-business-2585-name
+                                                                   'value': 'global-field'},
+                                                                  {'id': 99165,
+                                                                   'key': 'local-business-2585-name
+                                                                   'value': 'blogname'},
+                                                                  {'id': 99166,
+                                                                   'key': 'local-business-2585-sche
+                                                                   'value': 'global-field'},
+                                                                  {'id': 99167,
+                                                                   'key': 'local-business-2585-sche
+                                                                   'value': 'LocalBusiness'},
+                                                                  {'id': 99168,
+                                                                   'key': 'local-business-2585-imag
+                                                                   'value': 'global-field'},
+                                                                  {'id': 99169,
+                                                                   'key': 'local-business-2585-imag
+                                                                   'value': 'site_logo'},
+                                                                  {'id': 99170,
+                                                                   'key': 'local-business-2585-tele
+                                                                   'value': 'custom-field'},
+                                                                  {'id': 99171,
+                                                                   'key': 'local-business-2585-tele
+                                                                   'value': ''},
+                                                                  {'id': 99172,
+                                                                   'key': 'local-business-2585-pric
+                                                                   'value': 'custom-field'},
+                                                                  {'id': 99173,
+                                                                   'key': 'local-business-2585-pric
+                                                                   'value': ''},
+                                                                  {'id': 99174,
+                                                                   'key': 'local-business-2585-url-
+                                                                   'value': 'custom-field'},
+                                                                  {'id': 99175,
+                                                                   'key': 'local-business-2585-url'
+                                                                   'value': 'https://fundedmax.com/
+                                                                  {'id': 99176,
+                                                                   'key': 'local-business-2585-loca
+                                                                   'value': 'custom-field'},
+                                                                  {'id': 99177,
+                                                                   'key': 'local-business-2585-loca
+                                                                   'value': ', '
+                                                                            'B '
+                                                                            'BLDG, '
+                                                                            'MEDIA '
+                                                                            'CITY, '
+                                                                            'DUBAI, '
+                                                                            'UNITED '
+                                                                            'ARAB '
+                                                                            'EMIRATES'},
+                                                                  {'id': 99178,
+                                                                   'key': 'local-business-2585-loca
+                                                                   'value': 'custom-field'},
+                                                                  {'id': 99179,
+                                                                   'key': 'local-business-2585-loca
+                                                                   'value': 'Iran, '
+                                                                            'Tehran'},
+                                                                  {'id': 99180,
+                                                                   'key': 'local-business-2585-loca
+                                                                   'value': 'custom-field'},
+                                                                  {'id': 99181,
+                                                                   'key': 'local-business-2585-loca
+                                                                   'value': '0000000000'},
+                                                                  {'id': 99182,
+                                                                   'key': 'local-business-2585-loca
+                                                                   'value': 'custom-field'},
+                                                                  {'id': 99183,
+                                                                   'key': 'local-business-2585-loca
+                                                                   'value': 'Iran'},
+                                                                  {'id': 99184,
+                                                                   'key': 'local-business-2585-loca
+                                                                   'value': 'custom-field'},
+                                                                  {'id': 99185,
+                                                                   'key': 'local-business-2585-loca
+                                                                   'value': 'IR'},
+                                                                  {'id': 99187,
+                                                                   'key': 'local-business-2585-hour
+                                                                   'value': [{'closes': '22:00',
+                                                                              'closes-custom': '22:
+                                                                              'closes-fieldtype': '
+                                                                              'closes-specific': '2
+                                                                              'days': 'دوشنبه,سه '
+                                                                                      'شنبه,چهار '
+                                                                                      'شنبه,پنجشنبه
+                                                                              'days-custom': 'دوشنب
+                                                                                             'شنبه,
+                                                                                             'شنبه,
+                                                                              'days-fieldtype': 'cu
+                                                                              'days-specific': 'دوش
+                                                                                               'شنب
+                                                                                               'شنب
+                                                                              'opens': '10:00',
+                                                                              'opens-custom': '10:0
+                                                                              'opens-fieldtype': 'c
+                                                                              'opens-specific': '10
+                                                                  {'id': 99188,
+                                                                   'key': 'local-business-2585-geo-
+                                                                   'value': 'custom-field'},
+                                                                  {'id': 99189,
+                                                                   'key': 'local-business-2585-geo-
+                                                                   'value': ''},
+                                                                  {'id': 99190,
+                                                                   'key': 'local-business-2585-geo-
+                                                                   'value': 'custom-field'},
+                                                                  {'id': 99191,
+                                                                   'key': 'local-business-2585-geo-
+                                                                   'value': ''},
+                                                                  {'id': 99192,
+                                                                   'key': 'local-business-2585-rati
+                                                                   'value': 'custom-field'},
+                                                                  {'id': 99193,
+                                                                   'key': 'local-business-2585-rati
+                                                                   'value': ''}],
+                                                    'minimum_amount': '',
+                                                    'product_categories': [],
+                                                    'product_ids': [],
+                                                    'status': 'publish',
+                                                    'usage_count': 0,
+                                                    'usage_limit': 0,
+                                                    'usage_limit_per_user': 0,
+                                                    'virtual': False},
+                                  'id': 16597,
+                                  'key': 'coupon_data',
+                                  'value': {'amount': '99',
+                                            'code': 'max50',
+                                            'date_created': {'date': '2023-11-02 '
+                                                                     '13:50:26.000000',
+                                                             'timezone': 'Asia/Tehran',
+                                                             'timezone_type': 3},
+                                            'date_expires': None,
+                                            'date_modified': {'date': '2023-11-03 '
+                                                                      '19:12:58.000000',
+                                                              'timezone': 'Asia/Tehran',
+                                                              'timezone_type': 3},
+                                            'description': '',
+                                            'discount_type': 'percent',
+                                            'email_restrictions': [],
+                                            'exclude_sale_items': False,
+                                            'excluded_product_categories': [],
+                                            'excluded_product_ids': [],
+                                            'free_shipping': False,
+                                            'id': 6565,
+                                            'individual_use': True,
+                                            'limit_usage_to_x_items': None,
+                                            'maximum_amount': '',
+                                            'meta_data': [{'id': 99144,
+                                                           'key': 'number_day_ticket_nirweb',
+                                                           'value': ''},
+                                                          {'id': 99162,
+                                                           'key': 'custom-markup-2586-custom-markup
+                                                           'value': 'custom-field'},
+                                                          {'id': 99163,
+                                                           'key': 'custom-markup-2586-custom-markup
+                                                           'value': '<script '
+                                                                    'type="application/ld+json">\r\
+                                                                    '{\r\n'
+                                                                    '  '
+                                                                    '"@context": '
+                                                                    '"https://schema.org/",\r\n'
+                                                                    '  '
+                                                                    '"@type": '
+                                                                    '"WebSite",\r\n'
+                                                                    '  "name": '
+                                                                    '"Fundedmax",\r\n'
+                                                                    '  "url": '
+                                                                    '"https://fundedmax.com/fa/",\r
+                                                                    '  '
+                                                                    '"description": '
+                                                                    '"برای '
+                                                                    'شروع به '
+                                                                    'معامله\u200cگری '
+                                                                    'در بازار '
+                                                                    'فارکس،ما '
+                                                                    'پلن های '
+                                                                    'متنوعی از '
+                                                                    'تأمین '
+                                                                    'سرمایه را '
+                                                                    'به شما '
+                                                                    'ارائه '
+                                                                    'میدهیم. '
+                                                                    'یکی از '
+                                                                    'پلان های '
+                                                                    'مالی ما '
+                                                                    'را انتخاب '
+                                                                    'کنید تا '
+                                                                    'همه '
+                                                                    'توجهات را '
+                                                                    'به خود '
+                                                                    'جلب کنید '
+                                                                    'و شروع به '
+                                                                    'کسب سود و '
+                                                                    'درآمد '
+                                                                    'کنید.",\r\n'
+                                                                    '  '
+                                                                    '"inLanguage": '
+                                                                    '"fa-IR"\r\n'
+                                                                    '}\r\n'
+                                                                    '</script>'},
+                                                          {'id': 99164,
+                                                           'key': 'local-business-2585-name-fieldty
+                                                           'value': 'global-field'},
+                                                          {'id': 99165,
+                                                           'key': 'local-business-2585-name',
+                                                           'value': 'blogname'},
+                                                          {'id': 99166,
+                                                           'key': 'local-business-2585-schema-type-
+                                                           'value': 'global-field'},
+                                                          {'id': 99167,
+                                                           'key': 'local-business-2585-schema-type'
+                                                           'value': 'LocalBusiness'},
+                                                          {'id': 99168,
+                                                           'key': 'local-business-2585-image-fieldt
+                                                           'value': 'global-field'},
+                                                          {'id': 99169,
+                                                           'key': 'local-business-2585-image',
+                                                           'value': 'site_logo'},
+                                                          {'id': 99170,
+                                                           'key': 'local-business-2585-telephone-fi
+                                                           'value': 'custom-field'},
+                                                          {'id': 99171,
+                                                           'key': 'local-business-2585-telephone',
+                                                           'value': ''},
+                                                          {'id': 99172,
+                                                           'key': 'local-business-2585-price-range-
+                                                           'value': 'custom-field'},
+                                                          {'id': 99173,
+                                                           'key': 'local-business-2585-price-range'
+                                                           'value': ''},
+                                                          {'id': 99174,
+                                                           'key': 'local-business-2585-url-fieldtyp
+                                                           'value': 'custom-field'},
+                                                          {'id': 99175,
+                                                           'key': 'local-business-2585-url',
+                                                           'value': 'https://fundedmax.com/fa/'},
+                                                          {'id': 99176,
+                                                           'key': 'local-business-2585-location-str
+                                                           'value': 'custom-field'},
+                                                          {'id': 99177,
+                                                           'key': 'local-business-2585-location-str
+                                                           'value': ', B BLDG, '
+                                                                    'MEDIA '
+                                                                    'CITY, '
+                                                                    'DUBAI, '
+                                                                    'UNITED '
+                                                                    'ARAB '
+                                                                    'EMIRATES'},
+                                                          {'id': 99178,
+                                                           'key': 'local-business-2585-location-loc
+                                                           'value': 'custom-field'},
+                                                          {'id': 99179,
+                                                           'key': 'local-business-2585-location-loc
+                                                           'value': 'Iran, '
+                                                                    'Tehran'},
+                                                          {'id': 99180,
+                                                           'key': 'local-business-2585-location-pos
+                                                           'value': 'custom-field'},
+                                                          {'id': 99181,
+                                                           'key': 'local-business-2585-location-pos
+                                                           'value': '0000000000'},
+                                                          {'id': 99182,
+                                                           'key': 'local-business-2585-location-reg
+                                                           'value': 'custom-field'},
+                                                          {'id': 99183,
+                                                           'key': 'local-business-2585-location-reg
+                                                           'value': 'Iran'},
+                                                          {'id': 99184,
+                                                           'key': 'local-business-2585-location-cou
+                                                           'value': 'custom-field'},
+                                                          {'id': 99185,
+                                                           'key': 'local-business-2585-location-cou
+                                                           'value': 'IR'},
+                                                          {'id': 99187,
+                                                           'key': 'local-business-2585-hours-specif
+                                                           'value': [{'closes': '22:00',
+                                                                      'closes-custom': '22:00',
+                                                                      'closes-fieldtype': 'custom-f
+                                                                      'closes-specific': '22:00',
+                                                                      'days': 'دوشنبه,سه '
+                                                                              'شنبه,چهار '
+                                                                              'شنبه,پنجشنبه,شنبه,یک
+                                                                      'days-custom': 'دوشنبه,سه '
+                                                                                     'شنبه,چهار '
+                                                                                     'شنبه,پنجشنبه,
+                                                                      'days-fieldtype': 'custom-fie
+                                                                      'days-specific': 'دوشنبه,سه '
+                                                                                       'شنبه,چهار '
+                                                                                       'شنبه,پنجشنب
+                                                                      'opens': '10:00',
+                                                                      'opens-custom': '10:00',
+                                                                      'opens-fieldtype': 'custom-fi
+                                                                      'opens-specific': '10:00'}]},
+                                                          {'id': 99188,
+                                                           'key': 'local-business-2585-geo-latitude
+                                                           'value': 'custom-field'},
+                                                          {'id': 99189,
+                                                           'key': 'local-business-2585-geo-latitude
+                                                           'value': ''},
+                                                          {'id': 99190,
+                                                           'key': 'local-business-2585-geo-longitud
+                                                           'value': 'custom-field'},
+                                                          {'id': 99191,
+                                                           'key': 'local-business-2585-geo-longitud
+                                                           'value': ''},
+                                                          {'id': 99192,
+                                                           'key': 'local-business-2585-rating-field
+                                                           'value': 'custom-field'},
+                                                          {'id': 99193,
+                                                           'key': 'local-business-2585-rating',
+                                                           'value': ''}],
+                                            'minimum_amount': '',
+                                            'product_categories': [],
+                                            'product_ids': [],
+                                            'status': 'publish',
+                                            'usage_count': 0,
+                                            'usage_limit': 0,
+                                            'usage_limit_per_user': 0,
+                                            'virtual': False}}]}],
+ 'created_via': 'checkout',
+ 'currency': 'IRT',
+ 'currency_symbol': '$',
+ 'customer_id': 1377,
+ 'customer_ip_address': '5.115.121.42',
+ 'customer_note': '',
+ 'customer_user_agent': 'Mozilla/5.0 (Linux; Android 13; SAMSUNG SM-N985F) '
+                        'AppleWebKit/537.36 (KHTML, like Gecko) '
+                        'SamsungBrowser/22.0 Chrome/111.0.5563.116 Mobile '
+                        'Safari/537.36',
+ 'date_completed': None,
+ 'date_completed_gmt': None,
+ 'date_created': '2023-11-03T20:36:11',
+ 'date_created_gmt': '2023-11-03T17:06:11',
+ 'date_modified': '2023-11-03T20:36:47',
+ 'date_modified_gmt': '2023-11-03T17:06:47',
+ 'date_paid': '2023-11-03T20:36:47',
+ 'date_paid_gmt': '2023-11-03T17:06:47',
+ 'discount_tax': '0',
+ 'discount_total': '3002274',
+ 'fee_lines': [],
+ 'id': 6579,
+ 'is_editable': False,
+ 'line_items': [{'id': 2443,
+                 'image': {'id': 5046,
+                           'src': 'https://fundedmax.com/wp-content/uploads/2023/06/5k.png'},
+                 'meta_data': [{'display_key': 'ins',
+                                'display_value': 'no insurance',
+                                'id': 16594,
+                                'key': 'pa_ins',
+                                'value': 'no-insurance'}],
+                 'name': '$ 5000 General - no insurance',
+                 'parent_name': '$ 5000 General',
+                 'price': 30326,
+                 'product_id': 494,
+                 'quantity': 1,
+                 'sku': '',
+                 'subtotal': '3032600',
+                 'subtotal_tax': '0',
+                 'tax_class': '',
+                 'taxes': [],
+                 'total': '30326',
+                 'total_tax': '0',
+                 'variation_id': 5553}],
+ 'meta_data': [{'id': 99723, 'key': 'number_day_ticket_nirweb', 'value': ''},
+               {'id': 99752, 'key': '_billing_name', 'value': 'مهدی سروی زاده'},
+               {'id': 99753, 'key': '_billing_rules', 'value': '1'},
+               {'id': 99754, 'key': 'is_vat_exempt', 'value': 'no'},
+               {'id': 99755, 'key': 'billing_name', 'value': 'مهدی سروی زاده'},
+               {'id': 99756, 'key': 'billing_rules', 'value': '1'},
+               {'id': 99758,
+                'key': 'zibal_payment_card_number',
+                'value': '585983******6322'},
+               {'id': 99759,
+                'key': 'zibal_payment_ref_number',
+                'value': '22748972238'}],
+ 'needs_payment': False,
+ 'needs_processing': True,
+ 'number': '6579',
+ 'order_key': 'wc_order_TokaFyn84POWb',
+ 'parent_id': 0,
+ 'payment_method': 'WC_Zibal',
+ 'payment_method_title': 'پرداخت امن زیبال',
+ 'payment_url': 'https://fundedmax.com/checkout/order-pay/6579/?pay_for_order=true&key=wc_order_Tok
+ 'prices_include_tax': False,
+ 'refunds': [],
+ 'shipping': {'address_1': '',
+              'address_2': '',
+              'city': '',
+              'company': '',
+              'country': '',
+              'first_name': '',
+              'last_name': '',
+              'phone': '',
+              'postcode': '',
+              'state': ''},
+ 'shipping_lines': [],
+ 'shipping_tax': '0',
+ 'shipping_total': '0',
+ 'status': 'processing',
+ 'tax_lines': [],
+ 'total': '30326',
+ 'total_tax': '0',
+ 'transaction_id': '3372673506',
+ 'version': '8.2.1'}
+('\n'
+ '        Email: mehdisarvi001@gmail.com\n'
+ '        Phone: 09363609565\n'
+ '        Name: مهدی سروی زاده\n'
+ '        Date: 2023-11-03T20:36:47\n'
+ '        Product Name: $ 5000 General - no insurance\n'
+ '        Product ID: 494\n'
+ "        Product Meta Data: {'id': 16594, 'key': 'pa_ins', 'value': "
+ "'no-insurance', 'display_key': 'ins', 'display_value': 'no insurance'}\n"
+ '        Product Type: General\n'
+ '        Product Size: 5000\n'
+ '        Product Insurance: False\n'
+ '        ')
+
