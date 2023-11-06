@@ -19,10 +19,11 @@ login_token = ''
 app =Sanic(__name__)
 
 class UserInfo:
-    def __init__(self, email: str, phone: str, name: str, product_line_items: List, date_raw: str) -> None:
+    def __init__(self, email: str, phone: str, name: str, lastname: str, product_line_items: List, date_raw: str) -> None:
         self.email = email
         self.phone = phone
         self.name = name
+        self.lastname = lastname
         self.date_raw = date_raw
         self.product_name: str = product_line_items[0]['name'];
         self.product_id: int = product_line_items[0]['product_id'];
@@ -37,6 +38,7 @@ class UserInfo:
         Email: {self.email}
         Phone: {self.phone}
         Name: {self.name}
+        LastName: {self.lastname}
         Date: {self.date_raw}
         Product Name: {self.product_name}
         Product ID: {self.product_id}
@@ -82,6 +84,7 @@ def send_user_to_server(user_info: UserInfo):
         'email': user_info.email,
         'phone': user_info.phone,
         'firstName': user_info.name,
+        # TODO: Add last name
         'accountSize': user_info.product_size,
         'accountType': 0 if user_info.product_type == 'Grand' else 1
     })
@@ -95,7 +98,8 @@ def test_send_user_to_server():
 test_user_info = UserInfo(
     email='shrnemati@gmail.com',
     phone='091212345678',
-    name='Test Name',
+    name='Omid',
+    lastname='Yousefi',
     date_raw='2023-09-15T19:58:02',
     product_line_items= [
     {
@@ -117,7 +121,9 @@ test_user_info = UserInfo(
           "value": "no-insurance",
           "display_key": "ins",
           "display_value": "no insurance"
-        }
+        },
+        { "id": 86368, "key": "billing_name", "value": "Omid" },
+        { "id": 86368, "key": "billing_lastname", "value": "Yousefi" },
       ],
       "sku": "",
       "price": 4450000,
@@ -130,39 +136,49 @@ test_user_info = UserInfo(
   ]
 )
 
-# send_res = send_user_to_server(user_info)
+# send_res = send_user_to_server(test_user_info)
 
 
 
 @app.post("/woocommerce_order")
 async def on_order_handler(request: Request) -> HTTPResponse:
-    pprint(request.body.decode())
-
-    user_name = ''
-    meta_data_field = request.json['meta_data']
-    for data in meta_data_field:
-        if data['key'] == 'billing_name':
-            user_name = data['value']
-            break
-
-    if not user_name:
-        print("User doesn't have name")
-        return text("No user name")
+    pprint(request.json)
+    if request.json['status'] == 'pending':
+        print("PENDING")
+        return text("Done")
         
-    user_info = UserInfo(
-        email=request.json['billing']['email'],
-        phone=request.json['billing']['phone'],
-        name=user_name,
-        date_raw=request.json['date_modified'],
-        product_line_items=request.json['line_items']
-    );
-    pprint(str(user_info))
-    print('', flush=True)
+    if request.json['status'] == 'processing':
+        print("PROCESSING")
+        user_name = ''
+        user_lastname = ''
+        meta_data_field = request.json['meta_data']
+        for data in meta_data_field:
+            if data['key'] == 'billing_name':
+                user_name = data['value']
+            if data['key'] == 'billing_lastname':
+                user_lastname = data['value']
+            if user_name and user_lastname:
+                break
 
-    send_user_to_server(user_info)
-    
-    return text("Done")
-    
+        if not user_name:
+            print("User doesn't have name")
+            return text("No user name")
+            
+        user_info = UserInfo(
+            email=request.json['billing']['email'],
+            phone=request.json['billing']['phone'],
+            name=user_name,
+            lastname=user_lastname,
+            date_raw=request.json['date_modified'],
+            product_line_items=request.json['line_items']
+        );
+        pprint(str(user_info))
+        print('', flush=True)
+
+        send_user_to_server(user_info)
+        
+        return text("Done")
+        
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=4343)
